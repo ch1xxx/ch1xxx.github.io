@@ -1,0 +1,649 @@
+<style>
+    body {
+        color: #C35E2F;
+        background-color: black;
+        font-size: 25px;
+        font-family: 'FOT-Matisse Pro UB';
+        margin: 60px 50px 0 50px;
+        text-align: center;
+    }
+
+    #footercontent {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        height: 40px;
+        width: 100%;
+        background-color: #000000bb;
+        backdrop-filter: blur(5px);
+        z-index: 999;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    #footerimg {
+        width: 90%;
+        border-top: #FA0026 solid 1px;
+        padding: 5px 0;
+        box-sizing: border-box;
+        display: flex;
+
+    }
+
+    #footertext {
+        color: white;
+        font-size: 15px;
+        line-height: 40px;
+        position: absolute;
+        top: 0;
+    }
+
+
+    button {
+        outline: none;
+        width: 100px;
+        border: 1px solid #EF5933;
+        height: 50px;
+        font-size: 15px;
+        transition: all 300ms;
+        box-shadow: 0 0 10px 4px #ef593388,
+            0 0 10px #EF5933 inset;
+        background-color: transparent;
+        color: #EF5933;
+        text-shadow: 0 0 10px #EF5933;
+        border-radius: 0px;
+        font-family: 'ITCAvantGardeStd-Bk';
+        margin: 10px;
+    }
+
+    @font-face {
+        font-family: 'ITCAvantGardeStd-Bk';
+        src: url("/fonts/ITCAvantGardeStd-Bk.otf");
+    }
+
+    button:hover {
+        background-color: #FA002688;
+        box-shadow: 0 0 20px 10px #FA002688;
+        border: 1px solid rgb(250, 0, 37, 0.5);
+        color: #fff;
+        backdrop-filter: blur(2px);
+
+    }
+
+    button:active {
+        background-color: #FA002644;
+
+        box-shadow: 0 0 20px 10px #FA002644;
+        transition: 100ms all;
+    }
+
+
+
+    input[type="text"] {
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 15px;
+        width: 100px;
+        height: 30px;
+        margin: 0 0 20px 0;
+        border: 1px solid #EF5933;
+        color: #EF5933;
+        -web-kit-appearance: none;
+        -moz-appearance: none;
+
+        outline: none;
+        text-decoration: none;
+        transition: all 300ms;
+        background-color: transparent;
+        border-radius: 0;
+        font-family: 'ITCAvantGardeStd-Bk';
+    }
+
+    input[type="text"]:focus {
+        border: 1px solid #FA0026;
+        box-shadow: #FA002688 0 0 20px,
+            #FA002688 0 0 10px 2px inset;
+
+    }
+
+    .box01 {
+        /* padding: 20px 0; */
+        margin: 4px 0;
+        border: 4px solid;
+        border-left-width: 0;
+        border-right-width: 0;
+
+    }
+
+    .sanjiao01 {
+        width: 0;
+        height: 0;
+
+        border-left: 24px #FA0026 solid;
+        border-top: 0 solid transparent;
+        border-bottom: 24px solid transparent;
+        filter: drop-shadow(0 0 5px #FA0026);
+
+    }
+
+    .sanjiao02 {
+        width: 0;
+        height: 0;
+
+        border-right: 24px #FA0026 solid;
+        border-top: 24px solid transparent;
+        border-bottom: 0 solid transparent;
+        filter: drop-shadow(0 0 5px #FA0026);
+
+
+    }
+
+    .sibianxing {
+        width: 12px;
+        height: 24px;
+        background-color: #FA0026;
+        display: flex;
+
+        transform: skew(-45DEG);
+        justify-content: space-around;
+        margin-right: 12px;
+        filter: drop-shadow(0 0 5px #FA0026);
+        /* box-shadow:0 0 5px #FA0026; */
+
+    }
+
+    /* 不規則圖形flex排列 */
+    .box02 {
+        display: flex;
+        justify-content: center;
+    }
+
+
+    /* 蒙版裁切测试 */
+    .box03 {
+        width: 150px;
+        height: 150px;
+        margin: 20px auto;
+        background-color: #FA002688;
+        clip-path: circle(50% at 50% 50%);
+    }
+
+
+    /* 水印页面居中测试 */
+    .watermark {
+        width: 156px;
+        font-size: 80px;
+        line-height: 200px;
+        text-shadow: 0 0 20px #FA002688;
+        color: #FA0026;
+        z-index: -1;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        opacity: 0.2;
+        transform: translate(-50%, -50%) scale(1.8);
+
+    }
+
+    .radiomark {
+        position: fixed;
+        top: 10px;
+        color: #FA0026;
+        height: 20px;
+        line-height: 20px;
+        display: flex;
+
+    }
+
+    .radiobox {
+        height: 30px;
+        width: 100px;
+        top: 5px;
+        right: 30px;
+        position: fixed;
+        border-color: #FA0026;
+        border-top: 1px solid;
+        border-bottom: 1px solid;
+        border-left: 8px double;
+        border-right: 8px double;
+        animation: charge 4000ms ease-out infinite;
+        box-sizing: border-box;
+    }
+
+    @keyframes charge {
+        0% {
+            opacity: 20%;
+            border-color: #FA0026;
+        }
+
+        75% {
+            opacity: 90%;
+            border-color: #f3b99e;
+        }
+
+        100% {
+            opacity: 10%;
+            border-color: #FA0026;
+        }
+
+
+
+    }
+
+    .typebox {
+        height: 14px;
+        width: 20px;
+        top: 5;
+        right: 5px;
+        position: fixed;
+        font-size: 10px;
+        line-height: 14px;
+
+        font-family: monospace;
+        box-sizing: border-box;
+    }
+
+
+    /* 闪烁动效测试 */
+    .radiomarkpoint {
+        width: 10px;
+        height: 20px;
+        background-color: #FA0026;
+        margin-right: 10px;
+        box-shadow: #FA0026 0 0 20px;
+
+        animation: twink 1500ms ease-in-out infinite;
+
+    }
+
+    @keyframes twink {
+        0% {
+            opacity: 0;
+            box-shadow: #FA0026 0 0 0px;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 0;
+        }
+    }
+
+
+    /* 点赞按钮测试 */
+    .likebtn {
+
+        width: 100px;
+        height: 100px;
+        background-color: #FA002688;
+        border-radius: 50%;
+        margin: 0 auto;
+        box-shadow: 0 10px 20px #FA002688;
+        transition: 300ms all;
+
+        /* 背景模糊效果,普通blur是自身模糊效果 */
+        backdrop-filter: blur(2px);
+    }
+
+    .likebtn:hover {
+        transform: scale(1.2);
+        box-shadow: 0 10px 30px #FA002644;
+
+    }
+
+    .likebtn:active {
+        transform: scale(1.1);
+        box-shadow: 0 10px 30px #FA002688;
+        transition: 100ms all;
+    }
+
+    .likebtn::after {
+        color: white;
+
+        position: relative;
+        display: flex;
+        text-align: center;
+        width: 80px;
+        height: 80px;
+        background-color: #FA0026;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        justify-content: center;
+        line-height: 80px;
+
+        content: "赞";
+
+    }
+
+    .mydatalist {
+        width: 20px;
+        background-color: red;
+
+
+
+    }
+</style>
+
+<body>
+    <!-- header -->
+    <div
+        style="height: 40px;width: 100%; background-color:#00000088;position: fixed;top: 0;left: 0;z-index: 999; backdrop-filter:blur(5px)">
+        <div class="radiomark" style="left: 10px;">
+            <div class="radiomarkpoint">
+            </div>
+            試驗用貳號機
+        </div>
+
+        <div class="radiomark" style="right: 10px;">
+            <div style="height: 30px;width: 100px;position: fixed;top: 5px;right: 30px;line-height: 28px;">
+                充電中
+            </div>
+            <div class="radiobox"></div>
+            <div class="typebox" style="background-color: #FA0026;color:#000;">入</div>
+            <div class="typebox" style="top: 21px;border: #FA0026 1px solid;">出</div>
+        </div>
+    </div>
+
+
+    <!-- nerv頁面居中水印繪製 -->
+    <img src="img/231531.png" style="min-width: 35%; opacity: 0.1;" class="watermark">
+    <div class="watermark">
+        <div class="box02">
+            <span class="sanjiao01"></span>
+            <span class="sibianxing"></span>
+            <span class="sibianxing"></span>
+            <span class="sibianxing"></span>
+            <span class="sibianxing"></span>
+            <div class="sibianxing" style="margin-right: 0;"></div>
+            <div class="sanjiao02"></div>
+
+        </div>
+        <div class="box01">
+            機密
+        </div>
+        <div class="box02">
+            <span class="sanjiao01"></span>
+            <span class="sibianxing"></span>
+            <span class="sibianxing"></span>
+            <span class="sibianxing"></span>
+            <span class="sibianxing"></span>
+            <div class="sibianxing" style="margin-right: 0;"></div>
+            <div class="sanjiao02"></div>
+
+        </div>
+    </div>
+
+
+    <!-- 滚动公告 -->
+    <marquee behavior="" direction="left" scrollamount="10" onmouseover="this.stop()" onmouseout="this.start()"
+        style="background-color: #FA002644;margin-bottom: 20px;">KEEP OUT</marquee>
+    <!-- 按鍵觸發事件 -->
+    <!-- <div style="border: 1px solid #C35E2F;padding: 20px 0;">
+        <input type="text" id='txt' style="width: 200px">
+        <br />
+
+        <button onclick="message()">點這裏</button>
+
+    </div> -->
+
+    <!-- 輸入計算脚本 -->
+    <!-- <div style="border: 1px solid #C35E2F;padding: 20px 0;">
+        <input type="text" id="txta">
+        乘
+        <input type="text" id="txtb">
+        得
+        <input type="text" id="txtresult">
+        <br />
+        <button onclick="jisuan()">calculate</button>
+    </div> -->
+
+    <!-- CSS繪製花邊 -->
+    <!-- <div style="width: 228px;margin: 20px auto;">
+        <div class="box02">
+            <span class="sanjiao01"></span>
+            <span class="sibianxing"></span>
+            <span class="sibianxing"></span>
+            <span class="sibianxing"></span>
+            <span class="sibianxing"></span>
+            <span class="sibianxing"></span>
+            <span class="sibianxing"></span>
+            <span class="sibianxing"></span>
+            <div class="sibianxing" style="margin-right: 0;"></div>
+            <div class="sanjiao02"></div>
+
+        </div>
+        <div class="box01">
+            <button onclick="test()" style="width: 228px;margin: 20px 0;">test button</button>
+        </div>
+        <div class="box02">
+            <span class="sanjiao01"></span>
+            <span class="sibianxing"></span>
+            <span class="sibianxing"></span>
+            <span class="sibianxing"></span>
+            <span class="sibianxing"></span>
+            <span class="sibianxing"></span>
+            <span class="sibianxing"></span>
+            <span class="sibianxing"></span>
+            <div class="sibianxing" style="margin-right: 0;"></div>
+            <div class="sanjiao02"></div>
+
+        </div>
+    </div> -->
+
+    <!-- 蒙版測試 -->
+    <!-- <div class="box03">
+        <img src="img/IMG_2198.JPG" style="max-height: 150px;position: relative; left: -20px;">
+    </div> -->
+
+    <!-- 按鈕動效測試 -->
+    <!-- <div class="likebtn"></div> -->
+
+    <!-- <input type="text" id="timetxt" style="width: 400px;">
+    <br />
+    <button onclick="timerstart()">计时器开始</button>
+    <button onclick="timerend()">计时器终止</button>
+    <br /> -->
+
+    <div id="mytimer" style="height: 30px;width: 100%;line-height: 30px;"></div>
+    <p></p>
+    <button onclick="randmsg()">MAGI計算</button>
+
+    <!-- 播放器测试 -->
+    <!-- <button onclick="playPause()" id="playbtn">开始</button>
+    <button onclick="normal()">正常</button>
+    <button onclick="zoomout()">小</button>
+    <button onclick="zoomin()">大</button>
+    <br />
+    <video src="img/video01.mp4" width="500" controls type="video/mp4" id="video01"></video> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- footer -->
+    <div style="width: 100%;height: 40px;"></div>
+    <footer id="footercontent">
+        <div id="footertext" style="left: 5%;">NERV 中國分部·北京</div>
+        <div id="footerimg">
+            <img src=" img/231532.png" style="max-height: 30px;filter: invert();margin: 0 auto;">
+        </div>
+        <div id="footertext" style="right: 5%;">人類補完計画</div>
+    </footer>
+
+</body>
+
+<script>
+
+    // 調用input搞乘法
+    function chengfa(a, b) {
+        x = a * b;
+        return x;
+    }
+    function jisuan() {
+        var avalue = document.getElementById("txta");
+        var bvalue = document.getElementById("txtb");
+        var resultvalue = document.getElementById("txtresult");
+
+        resultvalue.value = chengfa(avalue.value, bvalue.value);
+
+        // var duixiang = new duixiang(document.getElementById('txta').value, document.getElementById('txtb').value);
+        // var laopos = duixiang.addtwo();
+        // function duixiang(name01, name02) {
+
+        //     // document.write('你的老婆是：' + name01 + '和' + name02 + '<br/>');
+
+        //     this.addtwo = function () {
+        //         document.write(name01);
+        //         document.write('<br />');
+        //         document.write(name02);
+        //     }
+
+
+
+        // }
+
+
+
+
+    }
+    function message() {
+
+        document.getElementById("txt");
+        alert('你輸入的是：' + txt.value);
+
+    }
+
+
+    // 计时器
+    function timerstart() {
+
+        interval01 = setInterval(() => {
+            // console.log('循环器循环了' + x + '次');
+            var date = new Date();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var seconds = date.getSeconds();
+            if (minutes <= 9) {
+                minutes = "0" + minutes;
+            }
+            if (seconds <= 9) {
+                seconds = "0" + seconds;
+            }
+
+
+            document.getElementById("timetxt").value = hours + ' : ' + minutes + ' : ' + seconds;
+
+
+        }, 1000);
+
+    }
+    function timerend() {
+        clearInterval(interval01);
+    }
+
+    // 随机弹出信息
+    function randmsg() {
+
+        var a = Math.random();
+
+        var randnum = String(a).charAt(3);
+        var msg = new Array;
+
+        msg[1] = "結果是1";
+        msg[2] = '結果是2';
+        msg[3] = '計算失敗，再試一次';
+        msg[4] = "結果是" + a;
+        msg[5] = '計算失敗，再試一次';
+        msg[6] = '結果是6';
+        msg[7] = "計算失敗，再試一次";
+        msg[8] = '結果是8';
+        msg[9] = '計算失敗，再試一次';
+        msg[0] = "結果是0";
+
+        console.log(a);
+        console.log(randnum);
+
+        alert(msg[randnum]);
+
+    }
+
+    // 时钟
+    function mytimer() {
+        var date = new Date();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+        if (minutes <= 9) {
+            minutes = "0" + minutes;
+        }
+        if (seconds <= 9) {
+            seconds = "0" + seconds;
+        }
+        var timertext = document.getElementById("mytimer");
+        timertext.innerHTML = hours + ' : ' + minutes + ' : ' + seconds;
+
+
+    }
+    mytimer()
+    interval01 = setInterval(() => {
+        // console.log('循环器循环了' + x + '次');
+        mytimer()
+    }, 1000)
+
+    //播放器简单功能
+    var myvideo = document.getElementById("video01");
+    function playPause() {
+        if (myvideo.paused) {
+            myvideo.play();
+            document.getElementById("playbtn").innerHTML = "暂停"
+        } else {
+            myvideo.pause()
+            document.getElementById("playbtn").innerHTML = "开始"
+        }
+
+    }
+    function zoomin() {
+        myvideo.width = 1000;
+    }
+    function zoomout() {
+        myvideo.width = 300;
+    }
+    function normal() {
+        myvideo.width = 500;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
